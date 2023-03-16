@@ -10,8 +10,6 @@
 		160A5E8D258822CB008C0CE1 /* SysExWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5E8C258822CB008C0CE1 /* SysExWindowController.swift */; };
 		160A5EA1258825B0008C0CE1 /* PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160A5EA0258825B0008C0CE1 /* PreferenceKeys.swift */; };
 		161B71FA15D8DD83006E21D4 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 161B71F915D8DD83006E21D4 /* dsa_pub.pem */; };
-		162972B1097B414800158D7B /* SnoizeMIDI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169E71A7097B2419001AFB58 /* SnoizeMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		162972B2097B414C00158D7B /* SnoizeMIDISpy.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169E71B1097B242A001AFB58 /* SnoizeMIDISpy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		163849B426D37AF1007C15DF /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163849AA26D37AF0007C15DF /* Preferences.xib */; };
 		163849B526D37AF1007C15DF /* SysEx.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163849AC26D37AF0007C15DF /* SysEx.xib */; };
 		163849B626D37AF1007C15DF /* MIDIMonitor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163849AE26D37AF0007C15DF /* MIDIMonitor.xib */; };
@@ -42,6 +40,8 @@
 		16F9FA592586F51400169621 /* DisclosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9FA582586F51400169621 /* DisclosureButton.swift */; };
 		16F9FA5B2586F9BB00169621 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9FA5A2586F9BB00169621 /* main.swift */; };
 		16F9FA5D2586FD0B00169621 /* DisclosableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9FA5C2586FD0B00169621 /* DisclosableView.swift */; };
+		735C981B29C2913A008C687B /* SnoizeMIDI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169E71A7097B2419001AFB58 /* SnoizeMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		735C981C29C29145008C687B /* SnoizeMIDISpy.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 169E71B1097B242A001AFB58 /* SnoizeMIDISpy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,9 +138,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				735C981C29C29145008C687B /* SnoizeMIDISpy.framework in CopyFiles */,
+				735C981B29C2913A008C687B /* SnoizeMIDI.framework in CopyFiles */,
 				16A3C31E25E71631001F01A3 /* HexFiend.framework in CopyFiles */,
-				162972B1097B414800158D7B /* SnoizeMIDI.framework in CopyFiles */,
-				162972B2097B414C00158D7B /* SnoizeMIDISpy.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,9 +407,7 @@
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					167B880506ED4D650053D305 = {
-						DevelopmentTeam = YDJAW5GX9U;
 						LastSwiftMigration = 1220;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -712,9 +710,13 @@
 			baseConfigurationReference = 169E7171097B2203001AFB58 /* Snoize-Application-Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.5.4;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 7BK2V2UVPB;
 				INFOPLIST_FILE = "Info-MIDIMonitor.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MIDI Monitor";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
@@ -726,6 +728,8 @@
 				MARKETING_VERSION = 1.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.snoize.MIDIMonitor;
 				PRODUCT_NAME = "MIDI Monitor";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MIDIMonitor-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
@@ -745,9 +749,13 @@
 			baseConfigurationReference = 169E716F097B2203001AFB58 /* Snoize-Application-Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.5.4;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 7BK2V2UVPB;
 				INFOPLIST_FILE = "Info-MIDIMonitor.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MIDI Monitor";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
@@ -759,6 +767,8 @@
 				MARKETING_VERSION = 1.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.snoize.MIDIMonitor;
 				PRODUCT_NAME = "MIDI Monitor";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MIDIMonitor-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};

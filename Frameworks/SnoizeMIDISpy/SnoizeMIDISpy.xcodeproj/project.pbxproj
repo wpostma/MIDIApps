@@ -310,12 +310,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1240;
-				TargetAttributes = {
-					164103D709735FA5008DABCC = {
-						DevelopmentTeam = YDJAW5GX9U;
-						ProvisioningStyle = Automatic;
-					};
-				};
 			};
 			buildConfigurationList = 164103D209735F77008DABCC /* Build configuration list for PBXProject "SnoizeMIDISpy" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -468,13 +462,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1641044809736388008DABCC /* Snoize-Framework-Debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 7BK2V2UVPB;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = "Info-SnoizeMIDISpy.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snoize.MIDISpyFramework;
 				PRODUCT_NAME = SnoizeMIDISpy;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -483,13 +481,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1641044A09736388008DABCC /* Snoize-Framework-Release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 7BK2V2UVPB;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				INFOPLIST_FILE = "Info-SnoizeMIDISpy.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.snoize.MIDISpyFramework;
 				PRODUCT_NAME = SnoizeMIDISpy;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -497,7 +499,7 @@
 		1641040609735FA6008DABCC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
