@@ -801,7 +801,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.snoize.SysExLibrarian;
 				PRODUCT_NAME = "SysEx Librarian";
 				SWIFT_OBJC_BRIDGING_HEADER = "SysExLibrarian-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -822,7 +821,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.snoize.SysExLibrarian;
 				PRODUCT_NAME = "SysEx Librarian";
 				SWIFT_OBJC_BRIDGING_HEADER = "SysExLibrarian-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
