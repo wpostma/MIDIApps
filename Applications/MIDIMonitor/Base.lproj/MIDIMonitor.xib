@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22155" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24412" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22155"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24412"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -36,7 +36,7 @@
         <window identifier="monitor" title="MIDI Monitor" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="MIDIMonitor" animationBehavior="default" id="34" userLabel="Window" customClass="FastAnimatingWindow" customModule="MIDI_Monitor" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="146" y="378" width="600" height="550"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1728" height="1079"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1728" height="1083"/>
             <value key="minSize" type="size" width="500" height="500"/>
             <view key="contentView" id="45">
                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
@@ -326,7 +326,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="520">
-                                    <rect key="frame" x="527" y="1" width="16" height="95"/>
+                                    <rect key="frame" x="526" y="1" width="17" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -335,7 +335,7 @@
                             <outlet property="nextKeyView" destination="375" id="482"/>
                         </connections>
                     </customView>
-                    <box fixedFrame="YES" boxType="oldStyle" borderType="none" title="Title" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="281">
+                    <box fixedFrame="YES" borderType="none" title="Title" titlePosition="noTitle" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="281">
                         <rect key="frame" x="-2" y="0.0" width="602" height="181"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <view key="contentView" id="Cdo-wB-u8X">
@@ -441,10 +441,10 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="517">
-                                        <rect key="frame" x="584" y="17" width="16" height="131"/>
+                                        <rect key="frame" x="583" y="17" width="17" height="131"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
-                                    <tableHeaderView key="headerView" id="519">
+                                    <tableHeaderView key="headerView" wantsLayer="YES" id="519">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </tableHeaderView>
@@ -487,14 +487,14 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <box fixedFrame="YES" boxType="oldStyle" borderType="none" title="Title" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="232">
+                                <box fixedFrame="YES" borderType="none" title="Title" titlePosition="noTitle" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="232">
                                     <rect key="frame" x="286" y="156" width="115" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <view key="contentView" id="goW-6Z-Yvb">
                                         <rect key="frame" x="0.0" y="0.0" width="115" height="18"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="227">
+                                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="227">
                                                 <rect key="frame" x="0.0" y="1" width="16" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </progressIndicator>
@@ -552,61 +552,65 @@
         <image name="buttonCell:504:alternateImage" width="0.0" height="0.0">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
-S2V5ZWRBcmNoaXZlctEICVRyb290gAGsCwwXHCEiKCkvMjg7VSRudWxs1Q0ODxAREhMUFRZWJGNsYXNz
-Xk5TUmVzaXppbmdNb2RlXE5TSW1hZ2VGbGFnc1ZOU1JlcHNXTlNDb2xvcoALEAASBNAAAIACgAnSGA0Z
-G1pOUy5vYmplY3RzoRqAA4AI0hgNHRuiHh+ABIAFgAgQBdMjDSQlJidXTlMuYmFzZVtOUy5yZWxhdGl2
-ZYAAgAeABl8QbGZpbGU6Ly9sb2NhbGhvc3QvVXNlcnMvU2hhcmVkL2tyZXZpcy9Qcm9kdWN0cy9EaXNj
-bG9zYWJsZVZpZXcuZnJhbWV3b3JrL1Jlc291cmNlcy9TTkRpc2Nsb3N1cmVBcnJvd0Rvd24udGlmZtIq
-KywtWiRjbGFzc25hbWVYJGNsYXNzZXNVTlNVUkyiLC5YTlNPYmplY3TSKiswMVdOU0FycmF5ojAu0zM0
-DTU2N1dOU1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOACtIqKzk6V05TQ29sb3KiOS7SKis8PVdOU0lt
-YWdlojwuAAgAEQAaACQAKQAyADcASQBMAFEAUwBgAGYAcQB4AIcAlACbAKMApQCnAKwArgCwALUAwADC
-AMQAxgDLAM4A0ADSANQA1gDdAOUA8QDzAPUA9wFmAWsBdgF/AYUBiAGRAZYBngGhAagBsAG9AcIBxAHG
-AcsB0wHWAdsB4wAAAAAAAAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAAAHmA
+S2V5ZWRBcmNoaXZlctEICVRyb290gAGsCwwZHiMkKisxNDo9VSRudWxs1g0ODxAREhMUFRYXGFYkY2xh
+c3NeTlNSZXNpemluZ01vZGVcTlNJbWFnZUZsYWdzVk5TUmVwc1tOU1RpbnRDb2xvcldOU0NvbG9ygAsQ
+ABIE0AAAgAKAAIAJ0hoNGx1aTlMub2JqZWN0c6EcgAOACNIaDR8doiAhgASABYAIEAXTJQ0mFygpV05T
+LmJhc2VbTlMucmVsYXRpdmWAAIAHgAZfEGxmaWxlOi8vbG9jYWxob3N0L1VzZXJzL1NoYXJlZC9rcmV2
+aXMvUHJvZHVjdHMvRGlzY2xvc2FibGVWaWV3LmZyYW1ld29yay9SZXNvdXJjZXMvU05EaXNjbG9zdXJl
+QXJyb3dEb3duLnRpZmbSLC0uL1okY2xhc3NuYW1lWCRjbGFzc2VzVU5TVVJMoi4wWE5TT2JqZWN00iwt
+MjNXTlNBcnJheaIyMNM1Ng03ODlXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgArSLC07PFdOU0Nv
+bG9yojsw0iwtPj9XTlNJbWFnZaI+MAAIABEAGgAkACkAMgA3AEkATABRAFMAYABmAHMAegCJAJYAnQCp
+ALEAswC1ALoAvAC+AMAAxQDQANIA1ADWANsA3gDgAOIA5ADmAO0A9QEBAQMBBQEHAXYBewGGAY8BlQGY
+AaEBpgGuAbEBuAHAAc0B0gHUAdYB2wHjAeYB6wHzAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAA
+AfY
 </mutableData>
         </image>
         <image name="buttonCell:504:image" width="0.0" height="0.0">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
-S2V5ZWRBcmNoaXZlctEICVRyb290gAGsCwwXHCEiKCkvMjg7VSRudWxs1Q0ODxAREhMUFRZWJGNsYXNz
-Xk5TUmVzaXppbmdNb2RlXE5TSW1hZ2VGbGFnc1ZOU1JlcHNXTlNDb2xvcoALEAASBNAAAIACgAnSGA0Z
-G1pOUy5vYmplY3RzoRqAA4AI0hgNHRuiHh+ABIAFgAgQBdMjDSQlJidXTlMuYmFzZVtOUy5yZWxhdGl2
-ZYAAgAeABl8QbWZpbGU6Ly9sb2NhbGhvc3QvVXNlcnMvU2hhcmVkL2tyZXZpcy9Qcm9kdWN0cy9EaXNj
-bG9zYWJsZVZpZXcuZnJhbWV3b3JrL1Jlc291cmNlcy9TTkRpc2Nsb3N1cmVBcnJvd1JpZ2h0LnRpZmbS
-KissLVokY2xhc3NuYW1lWCRjbGFzc2VzVU5TVVJMoiwuWE5TT2JqZWN00iorMDFXTlNBcnJheaIwLtMz
-NA01NjdXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgArSKis5OldOU0NvbG9yojku0iorPD1XTlNJ
-bWFnZaI8LgAIABEAGgAkACkAMgA3AEkATABRAFMAYABmAHEAeACHAJQAmwCjAKUApwCsAK4AsAC1AMAA
-wgDEAMYAywDOANAA0gDUANYA3QDlAPEA8wD1APcBZwFsAXcBgAGGAYkBkgGXAZ8BogGpAbEBvgHDAcUB
-xwHMAdQB1wHcAeQAAAAAAAACAQAAAAAAAAA+AAAAAAAAAAAAAAAAAAAB5w
+S2V5ZWRBcmNoaXZlctEICVRyb290gAGsCwwZHiMkKisxNDo9VSRudWxs1g0ODxAREhMUFRYXGFYkY2xh
+c3NeTlNSZXNpemluZ01vZGVcTlNJbWFnZUZsYWdzVk5TUmVwc1tOU1RpbnRDb2xvcldOU0NvbG9ygAsQ
+ABIE0AAAgAKAAIAJ0hoNGx1aTlMub2JqZWN0c6EcgAOACNIaDR8doiAhgASABYAIEAXTJQ0mFygpV05T
+LmJhc2VbTlMucmVsYXRpdmWAAIAHgAZfEG1maWxlOi8vbG9jYWxob3N0L1VzZXJzL1NoYXJlZC9rcmV2
+aXMvUHJvZHVjdHMvRGlzY2xvc2FibGVWaWV3LmZyYW1ld29yay9SZXNvdXJjZXMvU05EaXNjbG9zdXJl
+QXJyb3dSaWdodC50aWZm0iwtLi9aJGNsYXNzbmFtZVgkY2xhc3Nlc1VOU1VSTKIuMFhOU09iamVjdNIs
+LTIzV05TQXJyYXmiMjDTNTYNNzg5V05TV2hpdGVcTlNDb2xvclNwYWNlRDAgMAAQA4AK0iwtOzxXTlND
+b2xvcqI7MNIsLT4/V05TSW1hZ2WiPjAACAARABoAJAApADIANwBJAEwAUQBTAGAAZgBzAHoAiQCWAJ0A
+qQCxALMAtQC6ALwAvgDAAMUA0ADSANQA1gDbAN4A4ADiAOQA5gDtAPUBAQEDAQUBBwF3AXwBhwGQAZYB
+mQGiAacBrwGyAbkBwQHOAdMB1QHXAdwB5AHnAewB9AAAAAAAAAIBAAAAAAAAAEAAAAAAAAAAAAAAAAAA
+AAH3A
 </mutableData>
         </image>
         <image name="buttonCell:505:alternateImage" width="0.0" height="0.0">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
-S2V5ZWRBcmNoaXZlctEICVRyb290gAGsCwwXHCEiKCkvMjg7VSRudWxs1Q0ODxAREhMUFRZWJGNsYXNz
-Xk5TUmVzaXppbmdNb2RlXE5TSW1hZ2VGbGFnc1ZOU1JlcHNXTlNDb2xvcoALEAASBNAAAIACgAnSGA0Z
-G1pOUy5vYmplY3RzoRqAA4AI0hgNHRuiHh+ABIAFgAgQBdMjDSQlJidXTlMuYmFzZVtOUy5yZWxhdGl2
-ZYAAgAeABl8QbGZpbGU6Ly9sb2NhbGhvc3QvVXNlcnMvU2hhcmVkL2tyZXZpcy9Qcm9kdWN0cy9EaXNj
-bG9zYWJsZVZpZXcuZnJhbWV3b3JrL1Jlc291cmNlcy9TTkRpc2Nsb3N1cmVBcnJvd0Rvd24udGlmZtIq
-KywtWiRjbGFzc25hbWVYJGNsYXNzZXNVTlNVUkyiLC5YTlNPYmplY3TSKiswMVdOU0FycmF5ojAu0zM0
-DTU2N1dOU1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOACtIqKzk6V05TQ29sb3KiOS7SKis8PVdOU0lt
-YWdlojwuAAgAEQAaACQAKQAyADcASQBMAFEAUwBgAGYAcQB4AIcAlACbAKMApQCnAKwArgCwALUAwADC
-AMQAxgDLAM4A0ADSANQA1gDdAOUA8QDzAPUA9wFmAWsBdgF/AYUBiAGRAZYBngGhAagBsAG9AcIBxAHG
-AcsB0wHWAdsB4wAAAAAAAAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAAAHmA
+S2V5ZWRBcmNoaXZlctEICVRyb290gAGsCwwZHiMkKisxNDo9VSRudWxs1g0ODxAREhMUFRYXGFYkY2xh
+c3NeTlNSZXNpemluZ01vZGVcTlNJbWFnZUZsYWdzVk5TUmVwc1tOU1RpbnRDb2xvcldOU0NvbG9ygAsQ
+ABIE0AAAgAKAAIAJ0hoNGx1aTlMub2JqZWN0c6EcgAOACNIaDR8doiAhgASABYAIEAXTJQ0mFygpV05T
+LmJhc2VbTlMucmVsYXRpdmWAAIAHgAZfEGxmaWxlOi8vbG9jYWxob3N0L1VzZXJzL1NoYXJlZC9rcmV2
+aXMvUHJvZHVjdHMvRGlzY2xvc2FibGVWaWV3LmZyYW1ld29yay9SZXNvdXJjZXMvU05EaXNjbG9zdXJl
+QXJyb3dEb3duLnRpZmbSLC0uL1okY2xhc3NuYW1lWCRjbGFzc2VzVU5TVVJMoi4wWE5TT2JqZWN00iwt
+MjNXTlNBcnJheaIyMNM1Ng03ODlXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgArSLC07PFdOU0Nv
+bG9yojsw0iwtPj9XTlNJbWFnZaI+MAAIABEAGgAkACkAMgA3AEkATABRAFMAYABmAHMAegCJAJYAnQCp
+ALEAswC1ALoAvAC+AMAAxQDQANIA1ADWANsA3gDgAOIA5ADmAO0A9QEBAQMBBQEHAXYBewGGAY8BlQGY
+AaEBpgGuAbEBuAHAAc0B0gHUAdYB2wHjAeYB6wHzAAAAAAAAAgEAAAAAAAAAQAAAAAAAAAAAAAAAAAAA
+AfY
 </mutableData>
         </image>
         <image name="buttonCell:505:image" width="0.0" height="0.0">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
-S2V5ZWRBcmNoaXZlctEICVRyb290gAGsCwwXHCEiKCkvMjg7VSRudWxs1Q0ODxAREhMUFRZWJGNsYXNz
-Xk5TUmVzaXppbmdNb2RlXE5TSW1hZ2VGbGFnc1ZOU1JlcHNXTlNDb2xvcoALEAASBNAAAIACgAnSGA0Z
-G1pOUy5vYmplY3RzoRqAA4AI0hgNHRuiHh+ABIAFgAgQBdMjDSQlJidXTlMuYmFzZVtOUy5yZWxhdGl2
-ZYAAgAeABl8QbWZpbGU6Ly9sb2NhbGhvc3QvVXNlcnMvU2hhcmVkL2tyZXZpcy9Qcm9kdWN0cy9EaXNj
-bG9zYWJsZVZpZXcuZnJhbWV3b3JrL1Jlc291cmNlcy9TTkRpc2Nsb3N1cmVBcnJvd1JpZ2h0LnRpZmbS
-KissLVokY2xhc3NuYW1lWCRjbGFzc2VzVU5TVVJMoiwuWE5TT2JqZWN00iorMDFXTlNBcnJheaIwLtMz
-NA01NjdXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgArSKis5OldOU0NvbG9yojku0iorPD1XTlNJ
-bWFnZaI8LgAIABEAGgAkACkAMgA3AEkATABRAFMAYABmAHEAeACHAJQAmwCjAKUApwCsAK4AsAC1AMAA
-wgDEAMYAywDOANAA0gDUANYA3QDlAPEA8wD1APcBZwFsAXcBgAGGAYkBkgGXAZ8BogGpAbEBvgHDAcUB
-xwHMAdQB1wHcAeQAAAAAAAACAQAAAAAAAAA+AAAAAAAAAAAAAAAAAAAB5w
+S2V5ZWRBcmNoaXZlctEICVRyb290gAGsCwwZHiMkKisxNDo9VSRudWxs1g0ODxAREhMUFRYXGFYkY2xh
+c3NeTlNSZXNpemluZ01vZGVcTlNJbWFnZUZsYWdzVk5TUmVwc1tOU1RpbnRDb2xvcldOU0NvbG9ygAsQ
+ABIE0AAAgAKAAIAJ0hoNGx1aTlMub2JqZWN0c6EcgAOACNIaDR8doiAhgASABYAIEAXTJQ0mFygpV05T
+LmJhc2VbTlMucmVsYXRpdmWAAIAHgAZfEG1maWxlOi8vbG9jYWxob3N0L1VzZXJzL1NoYXJlZC9rcmV2
+aXMvUHJvZHVjdHMvRGlzY2xvc2FibGVWaWV3LmZyYW1ld29yay9SZXNvdXJjZXMvU05EaXNjbG9zdXJl
+QXJyb3dSaWdodC50aWZm0iwtLi9aJGNsYXNzbmFtZVgkY2xhc3Nlc1VOU1VSTKIuMFhOU09iamVjdNIs
+LTIzV05TQXJyYXmiMjDTNTYNNzg5V05TV2hpdGVcTlNDb2xvclNwYWNlRDAgMAAQA4AK0iwtOzxXTlND
+b2xvcqI7MNIsLT4/V05TSW1hZ2WiPjAACAARABoAJAApADIANwBJAEwAUQBTAGAAZgBzAHoAiQCWAJ0A
+qQCxALMAtQC6ALwAvgDAAMUA0ADSANQA1gDbAN4A4ADiAOQA5gDtAPUBAQEDAQUBBwF3AXwBhwGQAZYB
+mQGiAacBrwGyAbkBwQHOAdMB1QHXAdwB5AHnAewB9AAAAAAAAAIBAAAAAAAAAEAAAAAAAAAAAAAAAAAA
+AAH3A
 </mutableData>
         </image>
     </resources>
