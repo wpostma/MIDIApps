@@ -386,7 +386,6 @@
 				167B881806ED4D650053D305 /* Resources */,
 				162972AD097B413E00158D7B /* CopyFiles */,
 				167B882606ED4D650053D305 /* Sources */,
-				1692D743258BFE730092D6E7 /* Run Script (SwiftLint) */,
 				167B883806ED4D650053D305 /* Frameworks */,
 				162972B4097B415900158D7B /* Run Script (Remove Headers and Modules from Frameworks) */,
 				160DC141268EF53800A799EC /* Run Script (Remove excess HexFiend installed files) */,
@@ -394,6 +393,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				166DB58E2ECBCFF100E1AA94 /* PBXTargetDependency */,
 				162972C3097B41A700158D7B /* PBXTargetDependency */,
 				162972C5097B41AA00158D7B /* PBXTargetDependency */,
 			);
@@ -436,6 +436,7 @@
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* MIDIMonitor */;
 			packageReferences = (
 				1646BF17278D157200B904E4 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				166DB5802ECBCED800E1AA94 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 			);
 			projectDirPath = "";
 			projectReferences = (
@@ -594,25 +595,6 @@
 			shellPath = /bin/sh;
 			shellScript = "find \"$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH\" \\( -type d -or -type l \\) -name Headers -exec rm -rf {} \\; -prune\nfind \"$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH\" \\( -type d -or -type l \\) -name Modules -exec rm -rf {} \\; -prune\n";
 		};
-		1692D743258BFE730092D6E7 /* Run Script (SwiftLint) */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script (SwiftLint)";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Adds support for Apple Silicon brew directory\n# https://stackoverflow.com/questions/65991508/swiftlint-cant-be-found-on-apple-silicon-xcode\n# https://developer.apple.com/forums/thread/688642\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -652,6 +634,10 @@
 			isa = PBXTargetDependency;
 			name = SnoizeMIDISpy.framework;
 			targetProxy = 162972C4097B41AA00158D7B /* PBXContainerItemProxy */;
+		};
+		166DB58E2ECBCFF100E1AA94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 166DB58D2ECBCFF100E1AA94 /* SwiftLintBuildToolPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -806,6 +792,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		166DB5802ECBCED800E1AA94 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.62.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -813,6 +807,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1646BF17278D157200B904E4 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		166DB58D2ECBCFF100E1AA94 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 166DB5802ECBCED800E1AA94 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
