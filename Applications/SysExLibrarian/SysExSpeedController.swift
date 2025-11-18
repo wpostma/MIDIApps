@@ -18,21 +18,9 @@ class SysExSpeedController: NSObject {
         NotificationCenter.default.removeObserver(self)
     }
 
-    override func awakeFromNib() {
+    func willShow() {
         outlineView.autoresizesOutlineColumn = false
 
-        // Workaround to get continuous updates from the sliders in the table view.
-        // You can't just set it, or its cell, to be continuous -- that still doesn't
-        // give you continuous updates through the normal table view interface.
-        // What DOES work is to have the cell message us directly.
-        if let column = outlineView.tableColumn(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "speed")),
-           let dataCell = column.dataCell as? NSCell {
-            dataCell.target = self
-            dataCell.action = #selector(self.takeSpeedFromSelectedCellInTableView)
-        }
-    }
-
-    func willShow() {
         NotificationCenter.default.addObserver(self, selector: #selector(midiObjectListChanged(_:)), name: .midiObjectListChanged, object: midiContext)
 
         captureDestinationsAndExternalDevices()
@@ -57,29 +45,49 @@ class SysExSpeedController: NSObject {
 
     // MARK: Actions
 
-    @objc func takeSpeedFromSelectedCellInTableView(_ sender: Any?) {
-        // sender is the outline view; get the selected cell to find its new value.
-        guard let cell = outlineView.selectedCell() else { return }
-        let newValue = cell.integerValue
+    @IBAction func takeSpeedFromSliderInOutlineViewRow(_ sender: Any?) {
+        guard let slider = sender as? NSSlider else { return }
+        let newValue = slider.integerValue
 
-        // Don't actually set the value while we're tracking -- no need to update CoreMIDI
-        // continuously.  Instead, remember which item is getting tracked and what its value
-        // is "supposed" to be.  When tracking finishes, the new value comes through
-        // -outlineView:setObjectValue:..., and we'll set it for real.
-        let row = outlineView.clickedRow
-        if let item = outlineView.item(atRow: row) as? MIDIObject {
-            trackingMIDIObject = item
-            speedOfTrackingMIDIObject = newValue
+        let row = outlineView.row(for: slider)
+        if let midiObject = outlineView.item(atRow: row) as? MIDIObject {
+            // It's 2025 and NSSlider and NSControl _still_ do not provide a way to determine whether a
+            // continuous control is being manipulated or is finished.
+            // In the past RunLoop.current.currentMode == .eventTracking might have worked, but not anymore.
+            // Give up and assume the control is manipulated via mouse.
+            let eventType = NSApplication.shared.currentEvent?.type
+            let tracking = eventType == .leftMouseDown || eventType == .leftMouseDragged
 
-            // update the slider value based on the effective speed (which may be different than the tracking value)
-            let effectiveValue = effectiveSpeedForItem(item)
-            if newValue != effectiveValue {
-                cell.integerValue = effectiveValue
+            if tracking {
+                // Don't actually set the value while we're tracking the slider movement continuously.
+                // There is no need to update CoreMIDI continuously. (In fact, it takes a surprisingly
+                // long time to round-trip the value through CoreMIDI and back again.)
+                // Instead, remember which item is getting tracked and what its temporary value is.
+               trackingMIDIObject = midiObject
+               speedOfTrackingMIDIObject = newValue
+
+               // Update the slider value based on the effective speed (which may be different than the tracking value)
+               let effectiveValue = effectiveSpeedForItem(midiObject)
+               if newValue != effectiveValue {
+                   slider.integerValue = effectiveValue
+               }
             }
-        }
+            else {
+                // Tracking is done, so set the value for real and let it propagate through CoreMIDI back to us.
+                if newValue > 0 && newValue != midiObject.maxSysExSpeed {
+                    midiObject.maxSysExSpeed = Int32(newValue)
 
-        // redisplay
-        invalidateRowAndParent(row)
+                    // Work around bug where CoreMIDI doesn't pay attention to the new speed
+                    midiContext.forceCoreMIDIToUseNewSysExSpeed()
+                }
+                trackingMIDIObject = nil
+            }
+
+            // midiObject may be a Destination, or an ExternalDevice with a parent Destination.
+            // Find the parent-most row for this object, and invalidate it and all its children.
+            let parentMostObject = outlineView.parent(forItem: midiObject) ?? midiObject
+            outlineView.reloadItem(parentMostObject, reloadChildren: true)
+        }
     }
 
     @IBAction func changeBufferSize(_ sender: Any?) {
@@ -143,15 +151,17 @@ class SysExSpeedController: NSObject {
 
     @objc func midiObjectChanged(_ notification: Notification) {
         guard let propertyName = notification.userInfo?[MIDIContext.changedProperty] as? String else { return }
+        guard let midiObject = notification.object as? MIDIObject else { return }
+
         if propertyName == kMIDIPropertyName as String {
-             // invalidate only the row for this object
-            let row = outlineView.row(forItem: notification.object)
-            outlineView.setNeedsDisplay(outlineView.rect(ofRow: row))
+             // Invalidate only the row for this object
+            outlineView.reloadItem(midiObject, reloadChildren: false)
         }
         else if propertyName == kMIDIPropertyMaxSysExSpeed as String {
-             // invalidate this row and the parent (if any)
-            let row = outlineView.row(forItem: notification.object)
-            invalidateRowAndParent(row)
+            // midiObject may be a Destination, or an ExternalDevice with a parent Destination.
+            // Find the parent-most row for this object, and invalidate it and all its children.
+            let parentMostObject = outlineView.parent(forItem: midiObject) ?? midiObject
+            outlineView.reloadItem(parentMostObject, reloadChildren: true)
          }
      }
 
@@ -167,23 +177,6 @@ class SysExSpeedController: NSObject {
         }
 
         return effectiveSpeed
-    }
-
-    func invalidateRowAndParent(_ row: Int) {
-        if row >= 0 {
-            outlineView.setNeedsDisplay(outlineView.rect(ofRow: row))
-
-            let level = outlineView.level(forRow: row)
-            if level > 0 && row > 0 {
-                // walk up rows until we hit one at a higher level -- that will be our parent
-                for higherRow in stride(from: row - 1, through: 0, by: -1) {
-                    if outlineView.level(forRow: higherRow) < level {
-                        outlineView.setNeedsDisplay(outlineView.rect(ofRow: higherRow))
-                        return
-                    }
-                }
-            }
-        }
     }
 
 }
@@ -243,22 +236,12 @@ extension SysExSpeedController: NSOutlineViewDataSource {
         }
     }
 
-    func outlineView(_ outlineView: NSOutlineView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, byItem item: Any?) {
-        guard let midiObject = item as? MIDIObject,
-              let column = tableColumn,
-              let number = object as? NSNumber else { return }
+}
 
-        if column.identifier.rawValue == "speed" {
-            let newValue = number.int32Value
-            if newValue > 0 && newValue != midiObject.maxSysExSpeed {
-                midiObject.maxSysExSpeed = newValue
+extension SysExSpeedController: NSOutlineViewDelegate {
 
-                // Work around bug where CoreMIDI doesn't pay attention to the new speed
-                midiContext.forceCoreMIDIToUseNewSysExSpeed()
-            }
-
-            trackingMIDIObject = nil
-        }
+    @MainActor func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
+        return false
     }
 
 }

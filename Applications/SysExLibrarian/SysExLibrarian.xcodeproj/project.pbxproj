@@ -48,7 +48,6 @@
 		16C43BBE25C529BA007A3A48 /* OutputStreamDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C43BBD25C529BA007A3A48 /* OutputStreamDestination.swift */; };
 		16C43BC025C52C89007A3A48 /* CombinationOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C43BBF25C52C89007A3A48 /* CombinationOutputStream.swift */; };
 		16D0EF1C25C9265300399C74 /* DetailsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0EF1B25C9265300399C74 /* DetailsWindowController.swift */; };
-		16D0EF2525C947F800399C74 /* SysExSpeedOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0EF2425C947F800399C74 /* SysExSpeedOutlineView.swift */; };
 		16D0EF2725C94D0400399C74 /* ValidatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0EF2625C94D0400399C74 /* ValidatingButton.swift */; };
 		16D0EF2B25CA16DF00399C74 /* NSPopUpButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0EF2A25CA16DF00399C74 /* NSPopUpButton+Extensions.swift */; };
 		16D6C6EF2EC40CD50074AE7F /* UTType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D6C6EE2EC40CCF0074AE7F /* UTType+Extensions.swift */; };
@@ -191,7 +190,6 @@
 		16C43BBD25C529BA007A3A48 /* OutputStreamDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputStreamDestination.swift; sourceTree = "<group>"; };
 		16C43BBF25C52C89007A3A48 /* CombinationOutputStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinationOutputStream.swift; sourceTree = "<group>"; };
 		16D0EF1B25C9265300399C74 /* DetailsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWindowController.swift; sourceTree = "<group>"; };
-		16D0EF2425C947F800399C74 /* SysExSpeedOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysExSpeedOutlineView.swift; sourceTree = "<group>"; };
 		16D0EF2625C94D0400399C74 /* ValidatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatingButton.swift; sourceTree = "<group>"; };
 		16D0EF2A25CA16DF00399C74 /* NSPopUpButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopUpButton+Extensions.swift"; sourceTree = "<group>"; };
 		16D6C6EE2EC40CCF0074AE7F /* UTType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+Extensions.swift"; sourceTree = "<group>"; };
@@ -356,7 +354,6 @@
 			children = (
 				16DE09DC25CB4934004F62F7 /* PreferencesWindowController.swift */,
 				169B7A1F25CA729900C9BB81 /* SysExSpeedController.swift */,
-				16D0EF2425C947F800399C74 /* SysExSpeedOutlineView.swift */,
 			);
 			name = "Preferences window";
 			sourceTree = "<group>";
@@ -641,7 +638,6 @@
 				16517BAF25D5154F00D0CAC4 /* GeneralWindowController.swift in Sources */,
 				16C43BBA25C4F637007A3A48 /* Data+Hashing.swift in Sources */,
 				16D0EF1C25C9265300399C74 /* DetailsWindowController.swift in Sources */,
-				16D0EF2525C947F800399C74 /* SysExSpeedOutlineView.swift in Sources */,
 				16B736C625D7773B000DAC58 /* LibraryEntry.swift in Sources */,
 				16517B9525D4AAFF00D0CAC4 /* MainWindowController.swift in Sources */,
 				16C43B9725C4EB00007A3A48 /* main.swift in Sources */,

@@ -304,14 +304,14 @@
                                     <rect key="frame" x="10" y="33" width="427" height="371"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="0.0" verticalLineScroll="19" verticalPageScroll="0.0" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="352">
+                                        <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="0.0" verticalLineScroll="22" verticalPageScroll="0.0" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="352">
                                             <rect key="frame" x="16" y="54" width="395" height="303"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <clipView key="contentView" id="YyG-ou-Q1J">
                                                 <rect key="frame" x="1" y="1" width="393" height="301"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" headerView="300439" id="353" customClass="SysExSpeedOutlineView" customModule="SysEx_Librarian" customModuleProvider="target">
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" headerView="300439" viewBased="YES" floatsGroupRows="NO" id="353" customClass="NSOutlineView">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="284"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
@@ -323,12 +323,35 @@
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </tableHeaderCell>
-                                                                <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="left" id="361" customClass="NonHighlightingTextFieldCell" customModule="SysEx_Librarian" customModuleProvider="target">
+                                                                <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="left" id="361">
                                                                     <font key="font" metaFont="cellTitle"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                <prototypeCellViews>
+                                                                    <tableCellView id="gMV-6a-PDW">
+                                                                        <rect key="frame" x="1" y="1" width="142" height="20"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                        <subviews>
+                                                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lzI-fn-r1b">
+                                                                                <rect key="frame" x="0.0" y="2" width="142" height="16"/>
+                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Name" id="Tt6-Np-W4f">
+                                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <connections>
+                                                                                    <binding destination="gMV-6a-PDW" name="value" keyPath="objectValue" id="eEv-AS-7kj"/>
+                                                                                </connections>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <connections>
+                                                                            <outlet property="textField" destination="lzI-fn-r1b" id="6ve-6f-Cus"/>
+                                                                        </connections>
+                                                                    </tableCellView>
+                                                                </prototypeCellViews>
                                                             </tableColumn>
                                                             <tableColumn identifier="speed" width="110" minWidth="110" maxWidth="110" id="354">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Speed">
@@ -344,13 +367,30 @@
                                                                         <decimal key="maximum" value="NaN"/>
                                                                     </numberFormatter>
                                                                 </sliderCell>
+                                                                <prototypeCellViews>
+                                                                    <tableCellView id="dP4-TZ-Tn7">
+                                                                        <rect key="frame" x="146" y="1" width="110" height="20"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                        <subviews>
+                                                                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BLN-QW-RPg">
+                                                                                <rect key="frame" x="0.0" y="2" width="110" height="16"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                                <sliderCell key="cell" controlSize="mini" continuous="YES" alignment="left" minValue="10" maxValue="3125" doubleValue="3125" tickMarkPosition="above" sliderType="linear" id="Lob-bv-1zT"/>
+                                                                                <connections>
+                                                                                    <action selector="takeSpeedFromSliderInOutlineViewRow:" target="368" id="KBG-wt-9Pv"/>
+                                                                                    <binding destination="dP4-TZ-Tn7" name="value" keyPath="objectValue" id="4hb-XX-PGD"/>
+                                                                                </connections>
+                                                                            </slider>
+                                                                        </subviews>
+                                                                    </tableCellView>
+                                                                </prototypeCellViews>
                                                             </tableColumn>
                                                             <tableColumn identifier="percent" editable="NO" width="50" minWidth="10" maxWidth="50" id="357">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="%">
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                 </tableHeaderCell>
-                                                                <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="right" id="359" customClass="NonHighlightingTextFieldCell" customModule="SysEx_Librarian" customModuleProvider="target">
+                                                                <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="right" id="359">
                                                                     <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0%" negativeFormat="-0%" hasThousandSeparators="NO" thousandSeparator="," id="358">
                                                                         <attributedString key="attributedStringForZero">
                                                                             <fragment content="0%"/>
@@ -365,13 +405,43 @@
                                                                         <outlet property="formatter" destination="358" id="367"/>
                                                                     </connections>
                                                                 </textFieldCell>
+                                                                <prototypeCellViews>
+                                                                    <tableCellView id="drd-TU-Muq">
+                                                                        <rect key="frame" x="259" y="1" width="50" height="20"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                        <subviews>
+                                                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZEY-VP-Rna">
+                                                                                <rect key="frame" x="0.0" y="2" width="50" height="16"/>
+                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Pct" id="Q5M-5H-7BL">
+                                                                                    <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0%" negativeFormat="-0%" hasThousandSeparators="NO" thousandSeparator="," id="VJW-Ch-mDJ">
+                                                                                        <attributedString key="attributedStringForZero">
+                                                                                            <fragment content="0%"/>
+                                                                                        </attributedString>
+                                                                                        <decimal key="minimum" value="NaN"/>
+                                                                                        <decimal key="maximum" value="NaN"/>
+                                                                                    </numberFormatter>
+                                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <connections>
+                                                                                    <binding destination="drd-TU-Muq" name="value" keyPath="objectValue" id="5Nh-K7-oDC"/>
+                                                                                </connections>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <connections>
+                                                                            <outlet property="textField" destination="ZEY-VP-Rna" id="fPb-OP-MEQ"/>
+                                                                        </connections>
+                                                                    </tableCellView>
+                                                                </prototypeCellViews>
                                                             </tableColumn>
                                                             <tableColumn identifier="bytesPerSecond" editable="NO" width="75" minWidth="75" maxWidth="75" id="362">
                                                                 <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Bytes/sec">
                                                                     <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                 </tableHeaderCell>
-                                                                <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="right" id="364" customClass="NonHighlightingTextFieldCell" customModule="SysEx_Librarian" customModuleProvider="target">
+                                                                <textFieldCell key="dataCell" selectable="YES" editable="YES" alignment="right" id="364">
                                                                     <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="-0" hasThousandSeparators="NO" thousandSeparator="," id="363">
                                                                         <attributedString key="attributedStringForZero">
                                                                             <fragment content="0"/>
@@ -386,6 +456,36 @@
                                                                         <outlet property="formatter" destination="363" id="365"/>
                                                                     </connections>
                                                                 </textFieldCell>
+                                                                <prototypeCellViews>
+                                                                    <tableCellView id="uJC-tn-nKv">
+                                                                        <rect key="frame" x="312" y="1" width="79" height="20"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                        <subviews>
+                                                                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WLO-mN-r1j">
+                                                                                <rect key="frame" x="0.0" y="2" width="79" height="16"/>
+                                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Bytes" id="2bq-43-Bhj">
+                                                                                    <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="-0" hasThousandSeparators="NO" thousandSeparator="," id="9pm-tx-uAr">
+                                                                                        <attributedString key="attributedStringForZero">
+                                                                                            <fragment content="0"/>
+                                                                                        </attributedString>
+                                                                                        <decimal key="minimum" value="NaN"/>
+                                                                                        <decimal key="maximum" value="NaN"/>
+                                                                                    </numberFormatter>
+                                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <connections>
+                                                                                    <binding destination="uJC-tn-nKv" name="value" keyPath="objectValue" id="Wco-1e-G5f"/>
+                                                                                </connections>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <connections>
+                                                                            <outlet property="textField" destination="WLO-mN-r1j" id="wUY-jw-plw"/>
+                                                                        </connections>
+                                                                    </tableCellView>
+                                                                </prototypeCellViews>
                                                             </tableColumn>
                                                         </tableColumns>
                                                         <connections>
@@ -397,7 +497,7 @@
                                                 </subviews>
                                             </clipView>
                                             <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="300438">
-                                                <rect key="frame" x="1" y="-30" width="393" height="15"/>
+                                                <rect key="frame" x="1" y="285" width="393" height="17"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="300440">
